@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="paoc.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="paoc.Perspective"
+            id="PAOC.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="paoc.ui.PAOCEnvironmentEditor"
+            contributorClass="paoc.actions.PAOCGraphicalEditorActionBarContributor"
+            default="false"
+            icon="icons/NewEditor.png"
+            id="PAOC.PAOCEnvironmentEditor"
+            name="PAOC Environment Editor">
+      </editor>
+      <editor
+            class="paoc.ui.PAOCRequirementEditor"
+            default="false"
+            icon="icons/NewEditor.png"
+            id="PAOC.PAOCRequirementEditor"
+            name="PAOC Requirement Editor">
+      </editor>
+   </extension>
+
+</plugin>

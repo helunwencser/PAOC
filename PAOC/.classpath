@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.xtext.example.mydsl"/>
+	<classpathentry kind="lib" path="C:/Users/helunwen/workspace/PAOC/org.eclipse.emf.common.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/helunwen/workspace/PAOC/org.eclipse.jface.text-3.3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/helunwen/workspace/PAOC/org.eclipse.text_3.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/helunwen/workspace/PAOC/org.eclipse.xtext.ui_2.0.0.v201104111605.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

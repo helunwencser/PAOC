@@ -1,0 +1,43 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+DomainModel:
+	'package' packageName =  QualifiedName '{'
+		(elements += ConstraintType)*
+	"}"
+; //the DSL's elements describe default or personal constraints to specific activities
+
+ConstraintType:
+	d = DefaultConstraint | p = PersonalConstraint
+; //constraint type: d(default constraint), p(personal constraint)
+
+DefaultConstraint:
+	'activity' activityName = ID
+		'constraint' (constraints += Constraint)*
+; //default constraints, suitable for most people, for specific activity given by application developers
+
+PersonalConstraint:
+	'person' personName = ID
+		'activity' activityName = ID
+			'constraint' (constraints += Constraint)*
+; //describing personal constraints for specific activity
+
+Constraint:
+	constraintName = ID ':' featureName = ID ',' judgeFun = JudgeFun ',' threshold = Threshold
+; //e.g. cons: lightIntesity, inRange, [50, 100]
+
+QualifiedName:
+	ID('.'ID)*
+; //qualified name for describing package name
+
+JudgeFun:
+	'<' | '>' | ('<' | '>')? '=' | 'inRange'
+; //definition of judge function(<, >, <=, >=, =, inRange)
+ 
+Threshold:
+	Float | ('[' | '(' ) Float',' Float (')' | ']')
+; //definition of threshold for judge function(float, [float, float], (float, float), [float, float),(float, float])
+
+Float:
+	('+' | '-')? ( (INT('.'INT)?) | ('.'INT) )
+; //definition of floating-point number(INT is predefined in org.eclipse.xtext.common.Terminals)
